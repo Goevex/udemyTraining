@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
 func main() {
 	var input string
 	var count int
-	//var countSlice []int
+	var countSlice []int
 
 	for true {
 		fmt.Println("Welche Bitlänge soll der Grey Code haben?")
@@ -22,5 +23,11 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(input)
+
+	countSlice = make([]int, int(math.Pow(float64(2), float64(count))))
+	for i := range countSlice {
+		countSlice[i] = i
+	}
+
+	fmt.Println(countSlice)
 }
