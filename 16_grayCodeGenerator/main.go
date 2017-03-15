@@ -29,5 +29,21 @@ func main() {
 		countSlice[i] = i
 	}
 
-	fmt.Println(countSlice)
+	fmt.Println("Ausgangs-Array:")
+	var binaryCountArray []string
+	binaryCountArray = append(binaryCountArray, intSliceToBinaryStringSclice(countSlice)...)
+
+	fmt.Println(binaryCountArray)
+}
+
+func intSliceToBinaryStringSclice(intSlice []int) []string {
+	stringArray := make([]string, len(intSlice))
+	for i := range stringArray {
+		stringArray[i] = strconv.FormatInt(int64(intSlice[i]), 2)
+	}
+	for i := range stringArray {
+		format := "%0" + strconv.Itoa(len(stringArray[len(stringArray)-1])) + "s"
+		stringArray[i] = fmt.Sprintf(format, stringArray[i])
+	}
+	return stringArray
 }
